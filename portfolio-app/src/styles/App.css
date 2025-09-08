@@ -1,6 +1,8 @@
 .App {
-  text-align: center;
+  padding-top: 70px; /* Account for fixed header */
+  min-height: 100vh;
 }
+
 
 .App-logo {
   width: 300px;  /* Adjust this value */
@@ -15,7 +17,28 @@
   }
 }
 */
+.navigation {
+  background-color: #0d2bf0bc;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.navigation ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+}
+.navigation li {
+  margin: 0 1rem;
+  color: white;
+  font-weight: bold;
+}
+.navigation li:hover {
+ 
+  box-sizing: border-box;
 
+}
 .App-header {
   background-color: #282c34;
   min-height: 10px;
