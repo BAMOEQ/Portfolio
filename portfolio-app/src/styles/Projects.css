@@ -1,6 +1,6 @@
 .projects-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: #75420e;
   padding: 2rem 0;
 }
 
@@ -42,6 +42,9 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  height: 450px; /* Fixed height for consistent layout */
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -54,6 +57,12 @@
   position: relative;
   height: 200px;
   overflow: hidden;
+  transition: height 0.4s ease;
+}
+
+/* Shrink image on hover */
+.project-card:hover .project-image {
+  height: 120px;
 }
 
 .project-image img {
@@ -73,19 +82,29 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #553b08;
   color: white;
 }
 
 .image-placeholder span {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  transition: font-size 0.4s ease;
+}
+
+.project-card:hover .image-placeholder span {
+  font-size: 2rem;
 }
 
 .image-placeholder p {
   font-size: 1.1rem;
   margin: 0;
   opacity: 0.9;
+  transition: font-size 0.4s ease;
+}
+
+.project-card:hover .image-placeholder p {
+  font-size: 0.9rem;
 }
 
 /* Status Badge */
@@ -99,6 +118,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  z-index: 10;
 }
 
 .status-completed {
@@ -119,6 +139,10 @@
 /* Project Content */
 .project-content {
   padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .project-title {
@@ -128,11 +152,22 @@
   font-weight: 600;
 }
 
+/* Hidden description by default */
 .project-description {
   color: #666;
   line-height: 1.6;
   margin: 0 0 1.5rem 0;
   font-size: 0.95rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Show description on hover */
+.project-card:hover .project-description {
+  opacity: 1;
+  max-height: 100px; /* Adjust based on your content */
 }
 
 /* Technologies */
@@ -141,10 +176,11 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 2rem;
+  margin-top: auto; /* Push to bottom */
 }
 
 .tech-badge {
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: #553b08;
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 15px;
@@ -157,6 +193,7 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .project-link {
@@ -172,15 +209,15 @@
 }
 
 .live-link {
-  background: linear-gradient(45f, #f093fb, #f5576c);
+  background: #553b08;
   color: white;
   border: 2px solid transparent;
 }
 
 .live-link:hover {
   background: white;
-  color: #f5576c;
-  border: 2px solid #f5576c;
+  color: #75420e;
+  border: 2px solid #553b08;
   transform: translateY(-2px);
 }
 
@@ -251,6 +288,24 @@
     text-align: center;
     justify-content: center;
   }
+
+  .project-card {
+    height: auto; /* Allow flexible height on mobile */
+  }
+
+  /* Always show description on mobile */
+  .project-description {
+    opacity: 1;
+    max-height: none;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .project-card:hover .project-image {
+    height: 120px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -264,6 +319,10 @@
 
   .project-image {
     height: 150px;
+  }
+
+  .project-card:hover .project-image {
+    height: 100px;
   }
 
   .project-content {

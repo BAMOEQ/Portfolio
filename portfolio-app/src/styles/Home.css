@@ -1,7 +1,7 @@
 /* Container Styles */
 .home-container {
   min-height: 100vh;
-  background: #3d0101;
+  background: #75420e;
   color: white;
 }
 
@@ -54,10 +54,14 @@
 /* Quick Links */
 .quick-links {
   margin: 2rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .github-link,.linkedin-link {
-  background: rgba(0, 5, 96, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.2);
   color: white;
@@ -185,7 +189,7 @@
     height: 150px;
   }
   
-  .github-link {
+  .github-link, .linkedin-link {
     padding: 12px 24px;
     font-size: 1rem;
   }

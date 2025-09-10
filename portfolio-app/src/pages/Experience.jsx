@@ -3,53 +3,66 @@ import '../styles/Experience.css';
 
 function Experience() {
   const experiences = [
-    {
-      id: 1,
-      type: 'work', // 'work' or 'education'
-      title: 'Your Job Title',
-      company: 'Company Name',
-      location: 'City, State',
-      startDate: 'Month Year',
-      endDate: 'Month Year', // or 'Present'
-      description: [
-        'Key achievement or responsibility 1',
-        'Key achievement or responsibility 2',
-        'Key achievement or responsibility 3'
-      ],
-      technologies: ['Tech 1', 'Tech 2', 'Tech 3']
-    },
-    {
-      id: 2,
-      type: 'education',
-      title: 'Degree Name',
-      company: 'University Name',
-      location: 'City, State',
-      startDate: 'Month Year',
-      endDate: 'Month Year',
-      description: [
-        'Relevant coursework or achievements',
-        'GPA: X.XX (if you want to include)',
-        'Notable projects or activities'
-      ],
-      technologies: ['Subject 1', 'Subject 2', 'Subject 3']
-    },
-    {
-      id: 3,
-      type: 'Education',
-      title: 'Previous Job Title',
-      company: 'Previous Company',
-      location: 'City, State',
-      startDate: 'Month Year',
-      endDate: 'Month Year',
-      description: [
-        'Achievement 1',
-        'Achievement 2',
-        'Achievement 3'
-      ],
-      technologies: ['Tech 1', 'Tech 2']
-    }
-    // Add more experiences as needed
-  ];
+  {
+    id: 1,
+    type: 'work',
+    title: 'Coach',
+    company: 'GNC',
+    location: 'New York, NY',
+    startDate: 'Aug 2023',
+    endDate: 'Jan 2024',
+    description: [
+      'Exceeded sales targets through strong product knowledge and customer engagement.',
+      'Provided personalized recommendations to customers by staying up to date with health and wellness industry trends.'
+    ],
+    technologies: ['Sales', 'Customer Service', 'Product Knowledge']
+  },
+  {
+    id: 2,
+    type: 'work',
+    title: 'Producer Intern',
+    company: '92nd Street Y (YMCA)',
+    location: 'New York, NY',
+    startDate: 'Sep 2019',
+    endDate: 'Aug 2021',
+    description: [
+      'Assisted in managing tech operations, troubleshooting, and multimedia support for large-scale public events and internal initiatives.',
+      'Led and coordinated a tech-driven arts event aimed at expanding access to digital tools for underrepresented communities.'
+    ],
+    technologies: ['Event Tech', 'Multimedia Support', 'Team Collaboration']
+  },
+  {
+    id: 3,
+    type: 'education',
+    title: 'B.A. in Computer Science',
+    company: 'New York University – College of Arts and Sciences',
+    location: 'New York, NY',
+    startDate: 'Sep 2021',
+    endDate: 'May 2025',
+    description: [
+      'Relevant coursework: Discrete Mathematics, Operating Systems, Software Engineering, Data Structures, Algorithms, Applied Internet Technology, OOP, Linear Algebra, Computer Systems.',
+      'Study Abroad at NYU Paris (Feb – Jun 2024): Focus on Data Management, French, and Film.',
+      'Member of Puerto Rican Student Association; Communications Chair and Treasurer, boosting engagement by 50%.',
+      'Active in Google Developers Group @ NYU, co-hosting technical workshops and events.'
+    ],
+    technologies: ['Algorithms', 'Python', 'C++', 'Flask', 'Node.js', 'MongoDB']
+  },
+  {
+    id: 4,
+    type: 'education',
+    title: 'High School Diploma',
+    company: 'The Laboratory School of Finance and Technology',
+    location: 'Bronx, NY',
+    startDate: 'Sep 2017',
+    endDate: 'Jun 2021',
+    description: [
+      'Completed AP coursework: Calculus AB, Computer Science A, Computer Science Principles, English Literature, Environmental Science, Physics.',
+      'Active in Class Council, served as Communications Chair to advocate for student issues and organize events.'
+    ],
+    technologies: ['AP Calculus', 'AP Computer Science', 'Physics']
+  }
+];
+
 
   return (
     <div className="experience-container">

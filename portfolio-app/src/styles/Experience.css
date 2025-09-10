@@ -1,6 +1,6 @@
 .experience-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #75420e;
   padding: 2rem 0;
 }
 
@@ -8,21 +8,19 @@
   text-align: center;
   margin-bottom: 4rem;
   padding: 0 2rem;
+  color: white
 }
 
 .experience-header h1 {
   font-size: 3rem;
-  color: #333;
+  color: white;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .experience-header p {
   font-size: 1.2rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -43,7 +41,7 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(180deg, #667eea, #764ba2);
+  background:#aaaaaa;
   transform: translateX(-50%);
   border-radius: 2px;
 }
@@ -68,7 +66,7 @@
   width: 60px;
   height: 60px;
   background: white;
-  border: 4px solid #667eea;
+  border: 4px solid #75420e;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -78,7 +76,7 @@
 }
 
 .timeline-item.education .timeline-icon {
-  border-color: #764ba2;
+  border-color: #553b08;
 }
 
 /* Timeline Content */
@@ -150,13 +148,13 @@
 
 .company {
   font-size: 1.1rem;
-  color: #667eea;
+  color: #75420e;
   margin: 0 0 0.25rem 0;
   font-weight: 500;
 }
 
 .timeline-item.education .company {
-  color: #764ba2;
+  color: #553b08;
 }
 
 .location {
@@ -167,7 +165,7 @@
 
 .date-range {
   display: inline-block;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, #75420e, #553b08);
   color: white;
   padding: 0.4rem 1rem;
   border-radius: 20px;
@@ -195,12 +193,12 @@
   content: '▶';
   position: absolute;
   left: 0;
-  color: #667eea;
+  color: #75420e;
   font-size: 0.8rem;
 }
 
 .timeline-item.education .description li::before {
-  color: #764ba2;
+  color: #553b08;
 }
 
 /* Technologies */
@@ -227,7 +225,7 @@
 }
 
 .tech-tag {
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, #75420e, #553b08);
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;

@@ -1,5 +1,5 @@
 .header {
-  background: rgba(255, 255, 255, 0.95);
+  background: #e9e5cd;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -13,23 +13,29 @@
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 0 1rem 1rem; /* Reduced left padding from 2rem to 1rem */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo */
-.logo a {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: #333;
-  background: linear-gradient(45deg, #6e140a, #2080ca);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: -1rem; /* Move logo further left */
 }
+
+.logo-image {
+  width: 100px;   /* Increased from 40px */
+  height: 100px;  /* Increased from 40px */
+  object-fit: contain;
+  transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.logo-image:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
 
 /* Hamburger Menu */
 .hamburger {

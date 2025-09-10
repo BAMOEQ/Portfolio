@@ -3,47 +3,47 @@ import '../styles/Projects.css';
 
 function Projects() {
   const projects = [
-    {
-      id: 1,
-      title: 'Project Name 1',
-      description: 'Brief description of what this project does and the problem it solves. Keep it concise but informative.',
-      image: '/project-images/project1.jpg', // Add your project images to public/project-images/
-      technologies: ['React', 'JavaScript', 'CSS'],
-      liveLink: 'https://your-project-link.com',
-      githubLink: 'https://github.com/yourusername/project1',
-      status: 'completed' // 'completed', 'in-progress', 'planned'
-    },
-    {
-      id: 2,
-      title: 'Project Name 2',
-      description: 'Another project description highlighting key features and technologies used.',
-      image: '/project-images/project2.jpg',
-      technologies: ['Node.js', 'Express', 'MongoDB'],
-      liveLink: 'https://your-project-link2.com',
-      githubLink: 'https://github.com/yourusername/project2',
-      status: 'in-progress'
-    },
-    {
-      id: 3,
-      title: 'Project Name 3',
-      description: 'Third project showcasing different skills and technologies.',
-      image: '/project-images/project3.jpg',
-      technologies: ['Python', 'Django', 'PostgreSQL'],
-      liveLink: null, // No live link available
-      githubLink: 'https://github.com/yourusername/project3',
-      status: 'completed'
-    },
-    {
-      id: 4,
-      title: 'Project Name 4',
-      description: 'Fourth project demonstrating versatility in different tech stacks.',
-      image: null, // No image available - will show placeholder
-      technologies: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-      liveLink: 'https://your-project-link4.com',
-      githubLink: 'https://github.com/yourusername/project4',
-      status: 'planned'
-    }
-  ];
+  {
+    id: 1,
+    title: 'NBA Database App',
+    description: 'Full-stack web app that tracks NBA player and team stats using the BallDontLie API. Built secure authentication with JWT and bcrypt, and displayed live stats dynamically with React and TypeScript.',
+    image: '/project-images/nba-database.jpg',
+    technologies: ['Flask', 'React', 'TypeScript', 'MongoDB', 'JWT', 'bcrypt'],
+    liveLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
+    githubLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
+    status: 'completed'
+  },
+  {
+    id: 2,
+    title: 'Face Emotion Detection',
+    description: 'Real-time facial emotion detection tool using a machine learning model and webcam input. Integrated MongoDB for user tracking and emotion analysis.',
+    image: '/project-images/face-emotion.jpg',
+    technologies: ['Flask', 'Machine Learning', 'MongoDB'],
+    liveLink: null,
+    githubLink: 'https://github.com/BAMOEQ/Face-Emotion-Detection', // replace with actual repo if available
+    status: 'completed'
+  },
+  {
+    id: 3,
+    title: 'Gym System CLI',
+    description: 'Command-line application simulating a gym management system with member and admin roles. Designed with object-oriented principles and UML diagrams to capture user stories.',
+    image: '/project-images/gym-system.jpg',
+    technologies: ['Java', 'OOP', 'UML'],
+    liveLink: null,
+    githubLink: 'https://github.com/BAMOEQ/Gym-System-CLI', // replace with actual repo if available
+    status: 'completed'
+  },
+  {
+    id: 4,
+    title: 'Resume Analyzer',
+    description: 'Comprehensive web application that analyzes resumes against job market trends. Features resume parsing, skill detection, gap analysis, and personalized recommendations. Built with a microservice architecture and deployed via Docker and GitHub Actions to Digital Ocean.',
+    image: '/project-images/resume-analyzer.jpg',
+    technologies: ['FastAPI', 'Flask', 'MongoDB', 'Docker'],
+    liveLink: null, // update with real deployment link if available
+    githubLink: 'https://github.com/BAMOEQ/Resume-Analyzer',
+    status: 'completed'
+  }
+];
 
   const getStatusBadge = (status) => {
     const statusConfig = {
