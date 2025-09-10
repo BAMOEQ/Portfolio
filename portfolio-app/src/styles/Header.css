@@ -8,12 +8,14 @@
   right: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  min-height: 10px;
 }
 
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 0 1rem 1rem; /* Reduced left padding from 2rem to 1rem */
+  padding: 0 2rem; 
   display: flex;
   justify-content: space-between;
   align-items: center;
