@@ -5,13 +5,19 @@ import PasswordDashboard from '../components/PasswordDashboard';
 
 function Projects() {
   const [activeTab, setActiveTab] = useState('csv');
+  // Slideshow state for NBA Database App (id: 1)
+  const [nbaSlide, setNbaSlide] = useState(0);
 
   const projects = [
     {
       id: 1,
       title: 'NBA Database App',
       description: 'Full-stack web app that tracks NBA player and team stats using the BallDontLie API. Built secure authentication with JWT and bcrypt, and displayed live stats dynamically with React and TypeScript.',
-      image: '/project-images/nba-database.jpg',
+      media: [
+        { type: 'video', src: '/Projects/NBA-Search.mov' },
+        { type: 'image', src: '/Projects/FrontpageLoginApp.png' }
+      ],
+      image: '/project-images/nba-database.jpg', // fallback for other uses
       technologies: ['Flask', 'React', 'TypeScript', 'MongoDB', 'JWT', 'bcrypt'],
       liveLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
       githubLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
@@ -86,7 +92,7 @@ function Projects() {
       <div className="interactive-projects-section">
         <div className="section-header">
           <h2>🛠️ Interactive Tools</h2>
-          <p>Try these live simple projects built with React - no downloads required!</p>
+          <p>Try these live simple projects built by me with React - no downloads required!</p>
         </div>
 
         {/* Tab Navigation */}
@@ -140,11 +146,31 @@ function Projects() {
         <div className="projects-grid">
           {projects.map((project) => {
             const statusInfo = getStatusBadge(project.status);
-            
+            const isNBA = project.id === 1 && project.media && project.media.length > 0;
+
             return (
               <div key={project.id} className="project-card">
                 <div className="project-image">
-                  {project.image ? (
+                  {isNBA ? (
+                    <div className="project-media-slideshow">
+                      {project.media.length > 1 && (
+                        <button className="slide-arrow left" onClick={e => { e.stopPropagation(); setNbaSlide(nbaSlide === 0 ? project.media.length - 1 : nbaSlide - 1); }} aria-label="Previous media">&#x2039;</button>
+                      )}
+                      <div className="media-content">
+                        {project.media[nbaSlide].type === 'image' ? (
+                          <img src={project.media[nbaSlide].src} alt={project.title} />
+                        ) : project.media[nbaSlide].type === 'video' ? (
+                          <video width="100%" controls poster={project.media.find(m => m.type === 'image')?.src || ''}>
+                            <source src={project.media[nbaSlide].src} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        ) : null}
+                      </div>
+                      {project.media.length > 1 && (
+                        <button className="slide-arrow right" onClick={e => { e.stopPropagation(); setNbaSlide(nbaSlide === project.media.length - 1 ? 0 : nbaSlide + 1); }} aria-label="Next media">&#x203A;</button>
+                      )}
+                    </div>
+                  ) : project.image ? (
                     <img src={project.image} alt={project.title} />
                   ) : (
                     <div className="image-placeholder">
