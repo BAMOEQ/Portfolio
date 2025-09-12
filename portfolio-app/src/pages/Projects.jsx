@@ -11,7 +11,7 @@ function Projects() {
       id: 1,
       title: 'NBA Database App',
       description: 'Full-stack web app that tracks NBA player and team stats using the BallDontLie API. Built secure authentication with JWT and bcrypt, and displayed live stats dynamically with React and TypeScript.',
-      image: '/project-images/nba-database.jpg',
+      image: process.env.PUBLIC_URL + '/Projects/NBA-Search.mp4',
       technologies: ['Flask', 'React', 'TypeScript', 'MongoDB', 'JWT', 'bcrypt'],
       liveLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
       githubLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
@@ -21,7 +21,7 @@ function Projects() {
       id: 2,
       title: 'Face Emotion Detection',
       description: 'Real-time facial emotion detection tool using a machine learning model and webcam input. Integrated MongoDB for user tracking and emotion analysis.',
-      image: '/project-images/face-emotion.jpg',
+      image: process.env.PUBLIC_URL + '/Projects/face-emotion.jpg',
       technologies: ['Flask', 'Machine Learning', 'MongoDB'],
       liveLink: null,
       githubLink: 'https://github.com/BAMOEQ/Face-Emotion-Detection',
@@ -31,7 +31,7 @@ function Projects() {
       id: 3,
       title: 'Gym System CLI',
       description: 'Command-line application simulating a gym management system with member and admin roles. Designed with object-oriented principles and UML diagrams to capture user stories.',
-      image: '/project-images/gym-system.jpg',
+      image: process.env.PUBLIC_URL + '/Projects/gym-system.jpg',
       technologies: ['Java', 'OOP', 'UML'],
       liveLink: null,
       githubLink: 'https://github.com/BAMOEQ/Gym-System-CLI',
@@ -41,7 +41,7 @@ function Projects() {
       id: 4,
       title: 'Resume Analyzer',
       description: 'Comprehensive web application that analyzes resumes against job market trends. Features resume parsing, skill detection, gap analysis, and personalized recommendations. Built with a microservice architecture and deployed via Docker and GitHub Actions to Digital Ocean.',
-      image: '/project-images/resume-analyzer.jpg',
+      image: process.env.PUBLIC_URL + '/Projects/resume-analyzer.mp4',
       technologies: ['FastAPI', 'Flask', 'MongoDB', 'Docker'],
       liveLink: null,
       githubLink: 'https://github.com/BAMOEQ/Resume-Analyzer',
@@ -140,12 +140,19 @@ function Projects() {
         <div className="projects-grid">
           {projects.map((project) => {
             const statusInfo = getStatusBadge(project.status);
-            
+            const isVideo = project.image && project.image.match(/\.mp4$/i);
             return (
               <div key={project.id} className="project-card">
                 <div className="project-image">
                   {project.image ? (
-                    <img src={project.image} alt={project.title} />
+                    isVideo ? (
+                      <video controls width="100%" height="200" style={{objectFit: 'cover'}} poster="" preload="metadata">
+                        <source src={project.image} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    ) : (
+                      <img src={project.image} alt={project.title} />
+                    )
                   ) : (
                     <div className="image-placeholder">
                       <span>🚀</span>
@@ -178,7 +185,6 @@ function Projects() {
                         🌐 Live Demo
                       </a>
                     )}
-                    
                     {project.githubLink && (
                       <a 
                         href={project.githubLink} 

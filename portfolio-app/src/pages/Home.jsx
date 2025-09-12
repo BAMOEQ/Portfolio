@@ -7,7 +7,7 @@ function Home() {
     <div className="home-container">
       {/* Hero Section */}
       <section className="hero">
-        <img src="/ProfilePic.jpg" className="profile-image" alt="BAMOEQ Profile" />
+        <img src={`${process.env.PUBLIC_URL}/ProfilePic.jpg`} className="profile-image" alt="..." />
         <h1>Brandon A Morales</h1>
         <p className="tagline">Full Stack Developer & Tech Enthusiast</p>
         

@@ -209,13 +209,13 @@
 }
 
 /* Tags */
-.artists {
+.favorite-songs {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
 }
 
-.artist-tag {
+.song-tag {
   background: #1db954;
   color: white;
   padding: 0.2rem 0.6rem;

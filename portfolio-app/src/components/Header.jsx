@@ -18,7 +18,7 @@ function Header() {
       <div className="header-container">
         {/* Logo/Brand */}
         <div className="logo">
-          <Link to="/" onClick={closeMenu}><img src='/TMNT-LOGO.png' alt='TMNT Logo' className='logo-image'/></Link>
+          <Link to="/" onClick={closeMenu}><img src={`${process.env.PUBLIC_URL}/TMNT-LOGO.png`} alt='TMNT' className='logo-image'/></Link>
         </div>
 
         {/* Hamburger Menu Button */}

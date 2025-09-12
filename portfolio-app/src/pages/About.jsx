@@ -14,24 +14,24 @@ function About() {
       items: [
         {
           id: 1,
-          title: 'Hip Hop',
-          description: 'Classic and modern rap',
-          image: '/about-images/hiphop.jpg',
-          items: ['Kendrick Lamar', 'J. Cole', 'Drake']
+          title: 'The Big Punisher(Capital Punishment)',
+          description: 'Classic rap album',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/Big-Punn.png`,
+          "favorite-songs": ['Punish Me(feat Miss Jones)', 'Twinz(feat Fat Joe)', 'I\'m Not A Player']
         },
         {
           id: 2,
-          title: 'R&B',
-          description: 'Smooth and soulful vibes',
-          image: '/about-images/rnb.jpg',
-          items: ['The Weeknd', 'Frank Ocean', 'SZA']
+          title: 'Drake(Take Care)',
+          description: 'Classic RnB and Hip-Hop',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/Drake.png`,
+          "favorite-songs": ['Look what you\'ve done', 'Headlines', 'HYDR(feat Lil Wayne)']
         },
         {
           id: 3,
-          title: 'Electronic',
-          description: 'EDM and synthwave',
-          image: '/about-images/electronic.jpg',
-          items: ['Daft Punk', 'Calvin Harris', 'Skrillex']
+          title: 'NBA YoungBoy',
+          description: 'Rap ',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/NBA-YoungBoy.png`,
+          "favorite-songs": ['Right Foot Creep','All In', 'Off Season']
         }
       ]
     },
@@ -46,7 +46,7 @@ function About() {
           id: 1,
           title: 'New York Knicks',
           description: 'NBA Basketball',
-          image: '/Interests-Skills/Knicks.png',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/Knicks.png`,
           league: 'NBA',
           sport: 'Basketball'
         },
@@ -54,7 +54,7 @@ function About() {
           id: 2,
           title: 'New York Giants',
           description: 'NFL Football',
-          image: '/Interests-Skills/Giants.png',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/Giants.png`,
           league: 'NFL',
           sport: 'Football'
         },
@@ -62,7 +62,7 @@ function About() {
           id: 3,
           title: 'New York Yankees',
           description: 'MLB Baseball',
-          image: '/Interests-Skills/Yankees.png',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/Yankees.png`,
           league: 'MLB',
           sport: 'Baseball'
         }
@@ -79,7 +79,7 @@ function About() {
           id: 1,
           title: 'Rick and Morty',
           description: 'Sci-fi animated comedy',
-          image: '/Interests-Skills/Rick-and-Morty.png',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/Rick-and-Morty.png`,
           genre: 'Animation/Sci-Fi',
           status: 'Ongoing'
         },
@@ -87,7 +87,7 @@ function About() {
           id: 2,
           title: 'Breaking Bad',
           description: 'Crime drama masterpiece',
-          image: '/Interests-Skills/breaking-bad.png',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/Breaking-Bad.png`,
           genre: 'Crime/Drama',
           status: 'Completed'
         },
@@ -95,7 +95,7 @@ function About() {
           id: 3,
           title: 'The Office',
           description: 'Workplace comedy',
-          image: '/Interests-Skills/the-office.png',
+          image: `${process.env.PUBLIC_URL}/Interests-Skills/The-Office.png`,
           genre: 'Comedy',
           status: 'Completed'
         }
@@ -131,9 +131,9 @@ function About() {
                 <h4>{item.title}</h4>
                 <p>{item.description}</p>
                 {category.id === 'music' && (
-                  <div className="artists">
-                    {item.items.map((artist, index) => (
-                      <span key={index} className="artist-tag">{artist}</span>
+                  <div className="favorite-songs">
+                    {item["favorite-songs"].map((song, index) => (
+                      <span key={index} className="song-tag">{song}</span>
                     ))}
                   </div>
                 )}
@@ -170,7 +170,7 @@ function About() {
             onClick={() => handleCategoryClick('sports')}
             style={{ '--category-color': '#ff6b6b' }}
           >
-            <div className="category-icon">⚽</div>
+            <div className="category-icon">🏀</div>
             <h2>Sports</h2>
             <p>Teams that keep me on the edge of my seat</p>
             <div className="expand-indicator">
