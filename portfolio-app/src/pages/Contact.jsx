@@ -39,18 +39,6 @@ function Contact() {
 
   const contactInfo = [
     {
-      icon: '📧',
-      title: 'Email',
-      value: 'brandonmorales1226@gmail.com',
-      link: 'mailto:brandonmorales1226@gmail.com'
-    },
-    {
-      icon: '📱',
-      title: 'Phone',
-      value: '+1 (845)-453-7229',
-      link: 'tel:+1(845)-453-7229'
-    },
-    {
       icon: '📍',
       title: 'Location',
       value: 'New York, NY',
@@ -103,9 +91,6 @@ function Contact() {
             <div className="social-icons">
               <a href="https://github.com/BAMOEQ" target="_blank" rel="noopener noreferrer" className="social-link">
                 <span>🐙</span> GitHub
-              </a>
-              <a href="https://linkedin.com/in/brandonamorales/" target="_blank" rel="noopener noreferrer" className="social-link">
-                <span>💼</span> LinkedIn
               </a>
             </div>
           </div>

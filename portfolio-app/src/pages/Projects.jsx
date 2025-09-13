@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/Projects.css';
-import CSVReader from '../components/CSVReader';
-import PasswordDashboard from '../components/PasswordDashboard';
 
 function Projects() {
-  const [activeTab, setActiveTab] = useState('csv');
-
   const projects = [
     {
       id: 1,
       title: 'NBA Database App',
       description: 'Full-stack web app that tracks NBA player and team stats using the BallDontLie API. Built secure authentication with JWT and bcrypt, and displayed live stats dynamically with React and TypeScript.',
-      image: process.env.PUBLIC_URL + '/Projects/NBA-Search.mp4',
+      image: `${process.env.PUBLIC_URL}/Projects/NBA-Search.mp4`,
       technologies: ['Flask', 'React', 'TypeScript', 'MongoDB', 'JWT', 'bcrypt'],
-      liveLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
+      liveLink: null,
       githubLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
       status: 'completed'
     },
@@ -21,7 +17,7 @@ function Projects() {
       id: 2,
       title: 'Face Emotion Detection',
       description: 'Real-time facial emotion detection tool using a machine learning model and webcam input. Integrated MongoDB for user tracking and emotion analysis.',
-      image: process.env.PUBLIC_URL + '/Projects/face-emotion.jpg',
+      image: `${process.env.PUBLIC_URL}/Projects/Emotion-Detector-App.mp4`,
       technologies: ['Flask', 'Machine Learning', 'MongoDB'],
       liveLink: null,
       githubLink: 'https://github.com/BAMOEQ/Face-Emotion-Detection',
@@ -31,7 +27,7 @@ function Projects() {
       id: 3,
       title: 'Gym System CLI',
       description: 'Command-line application simulating a gym management system with member and admin roles. Designed with object-oriented principles and UML diagrams to capture user stories.',
-      image: process.env.PUBLIC_URL + '/Projects/gym-system.jpg',
+      image: [`${process.env.PUBLIC_URL}/Projects/AdminSession.png`, `${process.env.PUBLIC_URL}/Projects/MemberSession.png`],
       technologies: ['Java', 'OOP', 'UML'],
       liveLink: null,
       githubLink: 'https://github.com/BAMOEQ/Gym-System-CLI',
@@ -41,28 +37,11 @@ function Projects() {
       id: 4,
       title: 'Resume Analyzer',
       description: 'Comprehensive web application that analyzes resumes against job market trends. Features resume parsing, skill detection, gap analysis, and personalized recommendations. Built with a microservice architecture and deployed via Docker and GitHub Actions to Digital Ocean.',
-      image: process.env.PUBLIC_URL + '/Projects/resume-analyzer.mp4',
+      image: `${process.env.PUBLIC_URL}/Projects/resume-analyzer.mp4`,
       technologies: ['FastAPI', 'Flask', 'MongoDB', 'Docker'],
       liveLink: null,
       githubLink: 'https://github.com/BAMOEQ/Resume-Analyzer',
       status: 'completed'
-    }
-  ];
-
-  const interactiveProjects = [
-    {
-      id: 'csv',
-      title: 'CSV Data Visualizer',
-      icon: '📊',
-      description: 'Upload CSV files and create interactive charts with multiple visualization options',
-      component: CSVReader
-    },
-    {
-      id: 'password',
-      title: 'Password Security Dashboard',
-      icon: '🔐',
-      description: 'Analyze password strength, detect patterns, and check against data breaches',
-      component: PasswordDashboard
     }
   ];
 
@@ -77,81 +56,40 @@ function Projects() {
 
   return (
     <div className="projects-container">
-      <div className="projects-header">
-        <h1>My Projects</h1>
-        <p>A collection of projects showcasing my skills and creativity</p>
-      </div>
-
-      {/* Interactive Projects Section */}
-      <div className="interactive-projects-section">
-        <div className="section-header">
-          <h2>🛠️ Interactive Tools</h2>
-          <p>Try these live simple projects built with React - no downloads required!</p>
-        </div>
-
-        {/* Tab Navigation */}
-        <div className="interactive-tabs">
-          {interactiveProjects.map((project) => (
-            <button
-              key={project.id}
-              className={`tab-button ${activeTab === project.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(project.id)}
-            >
-              <span className="tab-icon">{project.icon}</span>
-              <span className="tab-title">{project.title}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Active Tool Display */}
-        <div className="interactive-tool-container">
-          {interactiveProjects.map((project) => (
-            <div
-              key={project.id}
-              className={`tool-card ${activeTab === project.id ? 'active' : ''}`}
-            >
-              {activeTab === project.id && (
-                <>
-                  <div className="tool-header">
-                    <div className="tool-title">
-                      <span className="tool-icon">{project.icon}</span>
-                      <h3>{project.title}</h3>
-                    </div>
-                    <p className="tool-description">{project.description}</p>
-                  </div>
-                  
-                  <div className="tool-content">
-                    <project.component />
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Regular Projects Section */}
       <div className="regular-projects-section">
-        <div className="section-header">
-          <h2>💼 Portfolio Projects</h2>
+        <div className="projects-header">
+          <h1>💼 Portfolio Projects</h1>
           <p>Full-stack applications and development projects</p>
         </div>
 
         <div className="projects-grid">
           {projects.map((project) => {
             const statusInfo = getStatusBadge(project.status);
-            const isVideo = project.image && project.image.match(/\.mp4$/i);
+
+            // Handle image/video/array logic safely
+            let isVideo = false;
+            let imageSrc = null;
+
+            if (Array.isArray(project.image)) {
+              imageSrc = project.image[0];
+              isVideo = typeof imageSrc === 'string' && imageSrc.match(/\.mp4$/i);
+            } else if (typeof project.image === 'string') {
+              imageSrc = project.image;
+              isVideo = imageSrc.match(/\.mp4$/i);
+            }
+
             return (
               <div key={project.id} className="project-card">
                 <div className="project-image">
-                  {project.image ? (
+                  {imageSrc ? (
                     isVideo ? (
                       <video controls width="100%" height="200" style={{objectFit: 'cover'}} poster="" preload="metadata">
-                        <source src={project.image} type="video/mp4" />
+                        <source src={imageSrc} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                     ) : (
-                      <img src={project.image} alt={project.title} />
+                      <img src={imageSrc} alt={project.title} />
                     )
                   ) : (
                     <div className="image-placeholder">
