@@ -3,47 +3,60 @@ import '../styles/Projects.css';
 
 function Projects() {
   const projects = [
-    {
-      id: 1,
-      title: 'NBA Database App',
-      description: 'Full-stack web app that tracks NBA player and team stats using the BallDontLie API. Built secure authentication with JWT and bcrypt, and displayed live stats dynamically with React and TypeScript.',
-      image: `${process.env.PUBLIC_URL}/Projects/NBA-Search.mp4`,
-      technologies: ['Flask', 'React', 'TypeScript', 'MongoDB', 'JWT', 'bcrypt'],
-      liveLink: null,
-      githubLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
-      status: 'completed'
-    },
-    {
-      id: 2,
-      title: 'Face Emotion Detection',
-      description: 'Real-time facial emotion detection tool using a machine learning model and webcam input. Integrated MongoDB for user tracking and emotion analysis.',
-      image: `${process.env.PUBLIC_URL}/Projects/Emotion-Detector-App.mp4`,
-      technologies: ['Flask', 'Machine Learning', 'MongoDB'],
-      liveLink: null,
-      githubLink: 'https://github.com/BAMOEQ/Face-Emotion-Detection',
-      status: 'completed'
-    },
-    {
-      id: 3,
-      title: 'Gym System CLI',
-      description: 'Command-line application simulating a gym management system with member and admin roles. Designed with object-oriented principles and UML diagrams to capture user stories.',
-      image: [`${process.env.PUBLIC_URL}/Projects/AdminSession.png`, `${process.env.PUBLIC_URL}/Projects/MemberSession.png`],
-      technologies: ['Java', 'OOP', 'UML'],
-      liveLink: null,
-      githubLink: 'https://github.com/BAMOEQ/Gym-System-CLI',
-      status: 'completed'
-    },
-    {
-      id: 4,
-      title: 'Resume Analyzer',
-      description: 'Comprehensive web application that analyzes resumes against job market trends. Features resume parsing, skill detection, gap analysis, and personalized recommendations. Built with a microservice architecture and deployed via Docker and GitHub Actions to Digital Ocean.',
-      image: `${process.env.PUBLIC_URL}/Projects/resume-analyzer.mp4`,
-      technologies: ['FastAPI', 'Flask', 'MongoDB', 'Docker'],
-      liveLink: null,
-      githubLink: 'https://github.com/BAMOEQ/Resume-Analyzer',
-      status: 'completed'
-    }
-  ];
+  {
+    id: 1,
+    title: 'NBA Database App',
+    description: 'Full-stack web app that tracks NBA player and team stats using the BallDontLie API. Built secure authentication with JWT and bcrypt, and displayed live stats dynamically with React and TypeScript.',
+    image: `${process.env.PUBLIC_URL}/Projects/NBA-Search.mp4`,
+    technologies: ['Flask', 'React', 'TypeScript', 'MongoDB', 'JWT', 'bcrypt'],
+    liveLink: null,
+    githubLink: 'https://github.com/BAMOEQ/NBA-Comparison-App',
+    status: 'completed'
+  },
+  {
+    id: 2,
+    title: 'Face Emotion Detection',
+    description: 'Real-time facial emotion detection tool using a machine learning model and webcam input. Integrated MongoDB for user tracking and emotion analysis.',
+    image: `${process.env.PUBLIC_URL}/Projects/Emotion-Detector-App.mp4`,
+    technologies: ['Flask', 'Machine Learning', 'MongoDB'],
+    liveLink: null,
+    githubLink: 'https://github.com/BAMOEQ/Face-Emotion-Detection',
+    status: 'completed'
+  },
+  {
+    id: 3,
+    title: 'Gym System CLI',
+    description: 'Command-line application simulating a gym management system with member and admin roles. Designed with object-oriented principles and UML diagrams to capture user stories.',
+    image: [
+      `${process.env.PUBLIC_URL}/Projects/AdminSession.png`, 
+      `${process.env.PUBLIC_URL}/Projects/MemberSession.png`
+    ],
+    technologies: ['Java', 'OOP', 'UML'],
+    liveLink: null,
+    githubLink: 'https://github.com/BAMOEQ/Gym-System-CLI',
+    status: 'completed'
+  },
+  {
+    id: 4,
+    title: 'Resume Analyzer',
+    description: 'Comprehensive web application that analyzes resumes against job market trends. Features resume parsing, skill detection, gap analysis, and personalized recommendations. Built with a microservice architecture and deployed via Docker and GitHub Actions to Digital Ocean.',
+    image: `${process.env.PUBLIC_URL}/Projects/resume-analyzer.mp4`,
+    technologies: ['FastAPI', 'Flask', 'MongoDB', 'Docker'],
+    liveLink: null,
+    githubLink: 'https://github.com/BAMOEQ/Resume-Analyzer',
+    status: 'completed'
+  },
+  {
+    id: 5,
+    title: 'NFL Match Predictor',
+    description: 'Machine learning project that predicts NFL game outcomes using team and player statistics. Data was cleaned, aggregated to team-level, and enriched with rolling averages and matchup features. Built predictive models with scikit-learn and evaluated with time-series cross-validation.',
+    image: `${process.env.PUBLIC_URL}/Projects/nfl-match-predictor.mp4`,
+    technologies: ['Python', 'Pandas', 'scikit-learn', 'Machine Learning'],
+    liveLink: null,
+    githubLink: 'https://github.com/BAMOEQ/NFL-Predictor',
+    status: 'in-progress'
+  }
+];
 
   const getStatusBadge = (status) => {
     const statusConfig = {

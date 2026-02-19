@@ -3,7 +3,7 @@ import '../styles/Skills.css';
 
 function Skills() {
   const stats = [
-    { number: '2+', label: 'Years Coding' },
+    { number: '4+', label: 'Years Coding' },
     { number: '15+', label: 'Technologies' },
     { number: '20+', label: 'Projects Built' },
     { number: '100%', label: 'Passion Level' }
