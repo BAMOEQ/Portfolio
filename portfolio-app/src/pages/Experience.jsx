@@ -1,7 +1,9 @@
-import React from 'react';
+import { useState } from 'react';
 import '../styles/Experience.css';
 
 function Experience() {
+  const [activeTab, setActiveTab] = useState('work');
+
   const experiences = [
     {
       id: 3,
@@ -36,6 +38,22 @@ function Experience() {
       technologies: ['AP Calculus', 'AP Computer Science', 'AP Physics']
     },
     {
+      id: 5,
+      type: 'work',
+      title: 'AI Quality Assurance Tester',
+      company: 'Steddy Funds',
+      logo: `${process.env.PUBLIC_URL}/Experience/Steddy-Logo.png`,
+      location: 'New York City Metropolitan Area',
+      startDate: 'Dec 2025',
+      endDate: 'Present',
+      description: [
+        'Executed manual testing of AI features, tools, and workflows to identify bugs and edge cases.',
+        'Documented test patterns and results to facilitate engineering troubleshooting and resolution.',
+        'Evaluated model outputs for accuracy and reliability to expected behaviors to ensure product quality standards.'
+      ],
+      technologies: ['AI Testing', 'QA', 'Manual Testing', 'Bug Documentation']
+    },
+    {
       id: 1,
       type: 'work',
       title: 'Coach',
@@ -67,9 +85,9 @@ function Experience() {
     }
   ];
 
-  // Split experiences by type
   const educationExperiences = experiences.filter(exp => exp.type === 'education');
   const workExperiences = experiences.filter(exp => exp.type === 'work');
+  const activeExperiences = activeTab === 'education' ? educationExperiences : workExperiences;
 
   return (
     <div className="experience-container">
@@ -78,83 +96,55 @@ function Experience() {
         <p>My professional journey and educational background</p>
       </div>
 
-      <div className="experience-main-columns">
-        {/* Education Left */}
-        <div className="experience-column">
-          <h2 className="section-title">🎓 Education</h2>
-          <div className="timeline-cards">
-            {educationExperiences.map((exp, idx) => (
-              <div key={exp.id} className="timeline-card education">
-                {exp.logo && (
-                  <img src={exp.logo} alt={exp.company + ' logo'} className="company-logo" />
-                )}
-                <div className="card-header">
-                  <h1 className="company">{exp.company}</h1>
-                  <h3 className="title">{exp.title}</h3>
-                  <span className="location">{exp.location}</span>
-                  <div className="date-range">
-                    {exp.startDate} - {exp.endDate}
-                  </div>
-                </div>
-                <div className="card-body">
-                  <ul className="description">
-                    {exp.description.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
-                  {exp.technologies && exp.technologies.length > 0 && (
-                    <div className="technologies">
-                      <span className="tech-label">Technologies:</span>
-                      <div className="tech-tags">
-                        {exp.technologies.map((tech, idx) => (
-                          <span key={idx} className="tech-tag">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="tab-bar">
+        <button
+          className={`tab-button ${activeTab === 'work' ? 'active' : ''}`}
+          onClick={() => setActiveTab('work')}
+        >
+          Work Experience
+        </button>
+        <button
+          className={`tab-button ${activeTab === 'education' ? 'active' : ''}`}
+          onClick={() => setActiveTab('education')}
+        >
+          Education
+        </button>
+      </div>
 
-        {/* Work Experience Right */}
-        <div className="experience-column">
-          <h2 className="section-title">💼 Work Experience</h2>
-          <div className="timeline-cards">
-            {workExperiences.map((exp, idx) => (
-              <div key={exp.id} className="timeline-card work">
-                {exp.logo && (
-                  <img src={exp.logo} alt={exp.company + ' logo'} className="company-logo" />
-                )}
-                <div className="card-header">
-                  <h1 className="company">{exp.company}</h1>
-                  <h3 className="title">{exp.title}</h3>
-                  <span className="location">{exp.location}</span>
-                  <div className="date-range">
-                    {exp.startDate} - {exp.endDate}
-                  </div>
-                </div>
-                <div className="card-body">
-                  <ul className="description">
-                    {exp.description.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
-                  {exp.technologies && exp.technologies.length > 0 && (
-                    <div className="technologies">
-                      <span className="tech-label">Technologies:</span>
-                      <div className="tech-tags">
-                        {exp.technologies.map((tech, idx) => (
-                          <span key={idx} className="tech-tag">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+      <div className="tab-content">
+        <div className="timeline-cards">
+          {activeExperiences.map((exp) => (
+            <div key={exp.id} className={`timeline-card ${exp.type}`}>
+              {exp.logo && (
+                <img src={exp.logo} alt={exp.company + ' logo'} className="company-logo" />
+              )}
+              <div className="card-header">
+                <h1 className="company">{exp.company}</h1>
+                <h3 className="title">{exp.title}</h3>
+                <span className="location">{exp.location}</span>
+                <div className="date-range">
+                  {exp.startDate} - {exp.endDate}
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="card-body">
+                <ul className="description">
+                  {exp.description.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+                {exp.technologies && exp.technologies.length > 0 && (
+                  <div className="technologies">
+                    <span className="tech-label">Technologies:</span>
+                    <div className="tech-tags">
+                      {exp.technologies.map((tech, idx) => (
+                        <span key={idx} className="tech-tag">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
