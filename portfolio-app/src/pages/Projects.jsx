@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Projects.css';
+import CSVReader from '../components/CSVReader';
+import PasswordDashboard from '../components/PasswordDashboard';
+import ProjectCarousel from '../components/ProjectCarousel';
 
 function Projects() {
+  // Tab state for interactive tools
+  const [activeTab, setActiveTab] = useState('csv');
+
+  const interactiveProjects = [
+    {
+      id: 'csv',
+      title: 'CSV Data Visualizer',
+      icon: '📊',
+      description: 'Upload CSV files and create interactive charts with multiple visualization options',
+      component: CSVReader
+    },
+    {
+      id: 'password',
+      title: 'Password Security Dashboard',
+      icon: '🔐',
+      description: 'Analyze password strength, detect patterns, and check against data breaches',
+      component: PasswordDashboard
+    }
+  ];
+
   const projects = [
   {
     id: 1,
@@ -28,7 +51,7 @@ function Projects() {
     title: 'Gym System CLI',
     description: 'Command-line application simulating a gym management system with member and admin roles. Designed with object-oriented principles and UML diagrams to capture user stories.',
     image: [
-      `${process.env.PUBLIC_URL}/Projects/AdminSession.png`, 
+      `${process.env.PUBLIC_URL}/Projects/AdminSession.png`,
       `${process.env.PUBLIC_URL}/Projects/MemberSession.png`
     ],
     technologies: ['Java', 'OOP', 'UML'],
@@ -58,108 +81,73 @@ function Projects() {
   }
 ];
 
-  const getStatusBadge = (status) => {
-    const statusConfig = {
-      completed: { text: 'Completed', class: 'status-completed' },
-      'in-progress': { text: 'In Progress', class: 'status-progress' },
-      planned: { text: 'Planned', class: 'status-planned' }
-    };
-    return statusConfig[status] || statusConfig.completed;
-  };
-
   return (
     <div className="projects-container">
-      {/* Regular Projects Section */}
-      <div className="regular-projects-section">
-        <div className="projects-header">
-          <h1>💼 Portfolio Projects</h1>
-          <p>Full-stack applications and development projects</p>
+      {/* Split section: Interactive Tools (left) + Project Carousel (right).
+          A 2-row grid keeps both content cards in the same row so their tops
+          align, regardless of differing header/tab heights. */}
+      <section className="projects-split">
+        {/* Left header: title, subtitle, tabs */}
+        <div className="tools-header">
+          <h2 className="interactive-tools-title">🛠️ Interactive Tools</h2>
+          <p className="interactive-tools-subtitle">
+            Try these live simple projects built by me using React - no downloads required!
+          </p>
+
+          {/* Tab Navigation */}
+          <div className="interactive-tabs">
+            {interactiveProjects.map((project) => (
+              <button
+                key={project.id}
+                className={`tab-button ${activeTab === project.id ? 'active' : ''}`}
+                onClick={() => setActiveTab(project.id)}
+              >
+                <span className="tab-icon">{project.icon}</span>
+                <span className="tab-title">{project.title}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="projects-grid">
-          {projects.map((project) => {
-            const statusInfo = getStatusBadge(project.status);
-
-            // Handle image/video/array logic safely
-            let isVideo = false;
-            let imageSrc = null;
-
-            if (Array.isArray(project.image)) {
-              imageSrc = project.image[0];
-              isVideo = typeof imageSrc === 'string' && imageSrc.match(/\.mp4$/i);
-            } else if (typeof project.image === 'string') {
-              imageSrc = project.image;
-              isVideo = imageSrc.match(/\.mp4$/i);
-            }
-
-            return (
-              <div key={project.id} className="project-card">
-                <div className="project-image">
-                  {imageSrc ? (
-                    isVideo ? (
-                      <video controls width="100%" height="200" style={{objectFit: 'cover'}} poster="" preload="metadata">
-                        <source src={imageSrc} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    ) : (
-                      <img src={imageSrc} alt={project.title} />
-                    )
-                  ) : (
-                    <div className="image-placeholder">
-                      <span>🚀</span>
-                      <p>Project Preview</p>
-                    </div>
-                  )}
-                  <div className={`status-badge ${statusInfo.class}`}>
-                    {statusInfo.text}
-                  </div>
+        {/* Left card: active tool display */}
+        <div className="interactive-tool-container">
+          {interactiveProjects.map((project) => (
+            <div
+              key={project.id}
+              className={`tool-card ${activeTab === project.id ? 'active' : ''}`}
+            >
+              <div className="tool-header">
+                <div className="tool-title">
+                  <span className="tool-icon">{project.icon}</span>
+                  <h3>{project.title}</h3>
                 </div>
-
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-
-                  <div className="project-technologies">
-                    {project.technologies.map((tech, index) => (
-                      <span key={index} className="tech-badge">{tech}</span>
-                    ))}
-                  </div>
-
-                  <div className="project-links">
-                    {project.liveLink && (
-                      <a 
-                        href={project.liveLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="project-link live-link"
-                      >
-                        🌐 Live Demo
-                      </a>
-                    )}
-                    {project.githubLink && (
-                      <a 
-                        href={project.githubLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="project-link github-link"
-                      >
-                        📂 View Code
-                      </a>
-                    )}
-                  </div>
-                </div>
+                <p className="tool-description">{project.description}</p>
               </div>
-            );
-          })}
+              <div className="tool-content">
+                <project.component />
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
+
+        {/* Right header: title, subtitle */}
+        <div className="carousel-header">
+          <h2 className="carousel-panel-title">💼 Portfolio Projects</h2>
+          <p className="carousel-panel-subtitle">
+            Full-stack applications and development projects
+          </p>
+        </div>
+
+        {/* Right card: project carousel */}
+        <ProjectCarousel projects={projects} />
+      </section>
 
       <div className="projects-footer">
         <p>More projects coming soon!</p>
-        <a 
-          href="https://github.com/bamoeq" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://github.com/bamoeq"
+          target="_blank"
+          rel="noopener noreferrer"
           className="github-profile-link"
         >
           View All Projects on GitHub →

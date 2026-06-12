@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 import '../styles/Header.css';
 
 function Header() {
@@ -16,9 +17,10 @@ function Header() {
   return (
     <header className="header">
       <div className="header-container">
-        {/* Logo/Brand */}
+        {/* Logo/Brand + theme toggle */}
         <div className="logo">
-          <Link to="/" onClick={closeMenu}><img src={`${process.env.PUBLIC_URL}/TMNT-LOGO.png`} alt='TMNT' className='logo-image'/></Link>
+          <Link to="/portfolio" onClick={closeMenu}><img src={`${process.env.PUBLIC_URL}/TMNT-LOGO.png`} alt='TMNT' className='logo-image'/></Link>
+          <ThemeToggle />
         </div>
 
         {/* Hamburger Menu Button */}
@@ -30,10 +32,9 @@ function Header() {
 
         {/* Navigation Menu */}
         <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
+          <Link to="/portfolio" className="nav-link" onClick={closeMenu}>Home</Link>
           <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
           <Link to="/projects" className="nav-link" onClick={closeMenu}>Projects</Link>
-          <Link to="/skills" className="nav-link" onClick={closeMenu}>Skills</Link>
           <Link to="/experience" className="nav-link" onClick={closeMenu}>Experience</Link>
           <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
         </nav>

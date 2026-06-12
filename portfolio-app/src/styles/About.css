@@ -1,6 +1,6 @@
 .about-container {
   min-height: 100vh;
-  background: #75420e;
+  background: var(--bg);
   padding: 2rem 0;
 }
 
@@ -12,14 +12,14 @@
 
 .about-header h1 {
   font-size: 3rem;
-  color: white;
+  color: var(--text);
   margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px var(--shadow);
 }
 
 .about-header p {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -37,26 +37,26 @@
 
 /* Category Boxes */
 .category-box {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--surface-strong);
   border-radius: 20px;
   padding: 3rem 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px var(--shadow);
   border: 3px solid transparent;
 }
 
 .category-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 40px var(--shadow);
   border-color: var(--category-color);
 }
 
 .category-box.active {
   border-color: var(--category-color);
-  background: rgba(255, 255, 255, 1);
+  background: var(--surface-strong);
 }
 
 .category-icon {
@@ -67,13 +67,13 @@
 
 .category-box h2 {
   font-size: 2rem;
-  color: #333;
+  color: var(--text);
   margin: 0 0 1rem 0;
   font-weight: 600;
 }
 
 .category-box p {
-  color: #666;
+  color: var(--text-muted);
   font-size: 1.1rem;
   margin: 0;
   line-height: 1.6;
@@ -110,7 +110,7 @@
 }
 
 .category-items {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 2rem;
@@ -124,10 +124,10 @@
 
 /* Item Cards */
 .item-card {
-  background: white;
+  background: var(--surface-strong);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px var(--shadow);
   transition: transform 0.3s ease;
 }
 
@@ -196,13 +196,13 @@
 
 .item-content h4 {
   font-size: 1.2rem;
-  color: #333;
+  color: var(--text);
   margin: 0 0 0.5rem 0;
   font-weight: 600;
 }
 
 .item-content p {
-  color: #666;
+  color: var(--text-muted);
   margin: 0 0 1rem 0;
   line-height: 1.5;
   font-size: 0.9rem;

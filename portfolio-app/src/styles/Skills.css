@@ -1,6 +1,6 @@
 .skills-container {
   min-height: 100vh;
-  background: #75420e;
+  background: var(--bg);
   padding: 2rem 0;
 }
 
@@ -12,14 +12,14 @@
 
 .skills-header h1 {
   font-size: 3rem;
-  color: white;
+  color: var(--text);
   margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px var(--shadow);
 }
 
 .skills-header p {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -30,28 +30,28 @@
   justify-content: center;
   gap: 2rem;
   margin: 0 auto 2.5rem auto;
-  background: rgba(255,255,255,0.12);
+  background: var(--surface);
   border-radius: 16px;
   padding: 1.5rem 2rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px var(--shadow);
   max-width: 900px;
 }
 
 .stat-item {
   text-align: center;
-  color: white;
+  color: var(--text);
 }
 
 .stat-number {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  color: var(--text);
+  text-shadow: 0 2px 8px var(--shadow);
 }
 
 .stat-label {
   font-size: 1rem;
-  color: #ffe6b3;
+  color: var(--accent);
   margin-top: 0.3rem;
   letter-spacing: 0.5px;
 }
@@ -66,10 +66,10 @@
 }
 
 .skills-card {
-  background: rgba(255,255,255,0.13);
+  background: var(--surface);
   border-radius: 16px;
   padding: 1.2rem 1rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px var(--shadow);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +97,7 @@
 .skills-card-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: white;
+  color: var(--text);
 }
 
 .skills-card-list {
@@ -110,13 +110,13 @@
 }
 
 .skills-pill {
-  background:  #75420e;
-  color: #fff;
+  background: var(--brand);
+  color: var(--text-on-brand);
   font-weight: 600;
   padding: 0.5rem 1.1rem;
   border-radius: 20px;
   font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(117,66,14,0.08);
+  box-shadow: 0 2px 8px var(--shadow);
   transition: background 0.3s, transform 0.3s;
   cursor: pointer;
   border: none;
@@ -125,9 +125,9 @@
 }
 
 .skills-pill:hover {
-  background: linear-gradient(45deg, #a67c3a, #75420e);
+  background: linear-gradient(45deg, var(--brand-deep), var(--brand));
   transform: scale(1.07);
-  color: #ffe6b3;
+  color: var(--text-on-brand);
 }
 
 /* Responsive Design */

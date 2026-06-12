@@ -18,7 +18,7 @@
 }
 */
 .navigation {
-  background-color: #0d2bf0bc;
+  background-color: var(--brand-deep);
   padding: 1rem;
   border-radius: 8px;
 }
@@ -31,7 +31,7 @@
 }
 .navigation li {
   margin: 0 1rem;
-  color: white;
+  color: var(--text-on-brand);
   font-weight: bold;
 }
 .navigation li:hover {
@@ -40,28 +40,28 @@
 
 }
 .App-header {
-  background-color: #282c34;
+  background-color: var(--surface-strong);
   min-height: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text);
 }
 
 .App-body {
-  background-color: #ffffff;
+  background-color: var(--bg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  color: var(--text);
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--link);
 }
 
